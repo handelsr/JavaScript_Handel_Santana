@@ -21,92 +21,138 @@ function dividir(operando1, operando2) {
 
 
 
-function calculadora(numero) {
-
-    var numero_anterior = document.getElementById("input_oculto").value;//esta variable guarda el valor del numero que en el input al finalizar el proceso anterior
-
-    //alert(" el numero que se acaba de presionar es:"+numero);
-
-    if (numero_anterior.length < 8) {
+function calculadora(caracter) {
+    //funcion para tomar los caracters dados por el usuario y mostrarlo en pantalla
+    var anterior = document.getElementById("display").innerHTML; // controlar lo que se mostrara en pantalla
+    var numeros = "0123456789";
+    var resultado = 0;
 
 
+    if (anterior.length < 8) {
 
-        if (numero != "=" && numero != "+" && numero != "-" && numero != "*" && numero != "/") {
+        if (numeros.indexOf(caracter) != -1) { // si el caracter ingresado se encuentra entre los numeros validos, si no  es un signo de operacion
 
-            if (numero == 0 && numero_anterior == 0) {
-                // en caso de que el numero guardado en el input oculto sea 0
-                document.getElementById("display").innerHTML = numero;
-                document.getElementById("input_oculto").value = numero;
+            if (anterior == "0" && caracter == "0") {
 
 
-
-            } else if (numero != 0 && numero_anterior == 0) {
+                document.getElementById("display").innerHTML = "0";
 
 
 
 
-
-                // en caso de ser diferente de 0
-
-                document.getElementById("input_oculto").value = numero;
-                document.getElementById("display").innerHTML = numero;
+            } else if (anterior == "0" && caracter != "0") {
 
 
+                document.getElementById("display").innerHTML = caracter;
 
-            } else if (numero != 0 && numero_anterior != 0) {
+
+            } else if (anterior != "0" && caracter != "0") {
+
+                document.getElementById("display").innerHTML = anterior + caracter;
 
 
-                var nuevo_numero = numero_anterior.concat(numero);
-                document.getElementById("input_oculto").value = nuevo_numero;
-                document.getElementById("display").innerHTML = nuevo_numero;
+            } else {
 
-            } else if (numero == 0 && numero_anterior != 0) {
+                document.getElementById("display").innerHTML = anterior + caracter;
 
-                var nuevo_numero = numero_anterior.concat(numero);
-                document.getElementById("input_oculto").value = nuevo_numero;
-                document.getElementById("display").innerHTML = nuevo_numero;
 
             }
 
 
 
-        } else if (numero == "+" || numero == "-" || numero == "/" || numero == "*") {
+
+        } else {   // si no es un numero entre el grupo de numeros permitidos, entonces es un signo de operacion (+,-,*,/)
+
+            var signo = caracter;
+            var operando1;
+            var operando2;
+
+            if (signo == "=") {
+                operando2 = document.getElementById("display").innerHTML;
+                operando1 = document.getElementById("oculto").value;
 
 
 
 
-            document.getElementById("display").innerHTML = "";
-            var nuevo_numero = numero_anterior.concat(numero);
-            document.getElementById("input_oculto").value = nuevo_numero;
+                if (operando1.indexOf("+") != -1) {
+                    operando1 = parseFloat(operando1.split("+"));
+                    operando2 = parseFloat(operando2);
+                    resultado = sumar(operando1, operando2);
+                    document.getElementById("display").innerHTML = resultado;
+                    document.getElementById("oculto").value = operando2 + "+";
 
 
 
 
-        } else if (numero == "=") {
 
-            numero_anterior = document.getElementById("input_oculto").value;
+                } else if (operando1.indexOf("-") != -1) {
 
-            var posicion_signo_mas = numero_anterior.indexOf("+");
-
-            var operando1 = parseInt(numero_anterior.substring(0, posicion_signo_mas));
-            var operando2 = parseInt(numero_anterior.substring(posicion_signo_mas + 1, numero_anterior.length));
-
-
-
-            var resultado = sumar(operando1, operando2);
+                    operando1 = parseFloat(operando1.split("-"));
+                    operando2 = parseFloat(operando2);
+                    resultado = restar(operando1, operando2);
+                    document.getElementById("display").innerHTML = resultado;
+                    document.getElementById("oculto").value = operando2 + "-";
 
 
-            document.getElementById("display").innerHTML = resultado;
-            document.getElementById("input_oculto").value = resultado;
+
+                } else if (operando1.indexOf("*") != -1) {
+                    operando1 = parseFloat(operando1.split("*"));
+                    operando2 = parseFloat(operando2);
+                    resultado = multiplicar(operando1, operando2);
+                    document.getElementById("display").innerHTML = resultado;
+                    document.getElementById("oculto").value = operando2 + "*";
+
+
+
+
+
+
+                } else if (operando1.indexOf("/") != -1) {
+                    operando1 = parseFloat(operando1.split("/"));
+                    operando2 = parseFloat(operando2);
+                    resultado = dividir(operando1, operando2);
+                    document.getElementById("display").innerHTML = resultado;
+                    document.getElementById("oculto").value = operando2 + "/";
+
+
+
+
+                }
+
+
+
+
+            } else {
+                operando1 = document.getElementById("display").innerHTML;
+                document.getElementById("display").innerHTML = "0";
+                document.getElementById("oculto").value = operando1 + signo;
+
+
+
+            }
+
 
 
 
         }
 
+
     } else {
-        alert("Solo se permiten maximo 8 digitos");
+        alert("lo sentimos, solo se permiten hasta 8 caracteres");
     }
 
 
 
-}// aca termina la definicion de la funcion "mostrar numero"
+
+}
+
+function aumentar_width(id) {
+
+    document.getElementById(id).style.width = "80px";
+}
+
+function reducir_width(id) {
+
+
+    document.getElementById(id).style.width = "70px";
+}
