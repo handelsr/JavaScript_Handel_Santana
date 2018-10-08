@@ -15,10 +15,60 @@ function dividir(operando1, operando2) {
     return operando1 / operando2;
 }
 
+function limpiar_todo() {
+    document.getElementById("display").innerHTML = "0";
+    document.getElementById("oculto").value="0";
+}
+
+
+function aumentar_width(id) {
+
+    document.getElementById(id).style.width = "80px";
+}
+
+function reducir_width(id) {
+
+
+    document.getElementById(id).style.width = "70px";
+}
 
 
 
+function agregar_punto() {
+    var cantidad_actual = document.getElementById("display").innerHTML;
 
+
+    if (cantidad_actual.indexOf(".") == -1) {
+        cantidad_actual = cantidad_actual + ".";
+
+        document.getElementById("display").innerHTML = cantidad_actual;
+    }
+
+
+}
+
+
+
+function agregar_signo() {
+    var cantidad_actual = document.getElementById("display").innerHTML;
+
+    if (cantidad_actual.indexOf("-") == -1) {
+
+        if (cantidad_actual != "0") {
+            cantidad_actual = "-" + cantidad_actual;
+            document.getElementById("display").innerHTML = cantidad_actual;
+        }
+
+
+
+    } else {
+        cantidad_actual = cantidad_actual.replace("-", "");
+
+        document.getElementById("display").innerHTML = cantidad_actual;
+    }
+
+
+}
 
 
 function calculadora(caracter) {
@@ -144,15 +194,4 @@ function calculadora(caracter) {
 
 
 
-}
-
-function aumentar_width(id) {
-
-    document.getElementById(id).style.width = "80px";
-}
-
-function reducir_width(id) {
-
-
-    document.getElementById(id).style.width = "70px";
 }
