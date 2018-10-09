@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -20,39 +20,38 @@
     </div>
 
     <div id="calculadoraFondo">
-        <div class="pantalla">
-            <span id="display">0</span>
-            <input style="display:none;" id="oculto" value="0">
-        </div>
+      <div class="pantalla">
+        <span id="display">0</span>
+      </div>
 
       <div class="teclado">
-        <img onmousedown="limpiar_todo();reducir_width('on')" onmouseup="aumentar_width('on')" src="image/ON.png" alt="On" class="tecla" id="on"/>
-        <img onmousedown="agregar_signo();reducir_width('sign')" onmouseup="aumentar_width('sign')" src="image/sign.png" alt="signo" class="tecla" id="sign"/>
-        <img onmousedown="reducir_width('raiz')" onmouseup="aumentar_width('raiz')" src="image/raiz.png" alt="raiz" class="tecla" id="raiz"/>
-        <img onmousedown="calculadora('/');reducir_width('dividido')" onmouseup="aumentar_width('dividido')" src="image/dividido.png" alt="dividido" class="tecla divide" id="dividido"/>
+        <img src="image/ON.png" alt="On" class="tecla" id="on"/>
+        <img src="image/sign.png" alt="signo" class="tecla" id="sign"/>
+        <img src="image/raiz.png" alt="raiz" class="tecla" id="raiz"/>
+        <img src="image/dividido.png" alt="dividido" class="tecla divide" id="dividido"/>
 
-        <img onmousedown="calculadora('7');reducir_width('7')" onmouseup="aumentar_width('7')" src="image/7.png" alt="7" class="tecla" id="7"/>
-        <img onmousedown="calculadora('8');reducir_width('8')" onmouseup="aumentar_width('8')" src="image/8.png" alt="8" class="tecla" id="8"/>
-        <img onmousedown="calculadora('9');reducir_width('9')" onmouseup="aumentar_width('9')" src="image/9.png" alt="9" class="tecla" id="9"/>
-        <img onmousedown=" calculadora('*');reducir_width('por')" onmouseup="aumentar_width('por')" src="image/por.png" alt="por" class="tecla multiplica" id="por"/>
+        <img src="image/7.png" alt="7" class="tecla" id="7"/>
+        <img src="image/8.png" alt="8" class="tecla" id="8"/>
+        <img src="image/9.png" alt="9" class="tecla" id="9"/>
+        <img src="image/por.png" alt="por" class="tecla multiplica" id="por"/>
 
-        <img onmousedown="calculadora('4');reducir_width('4')" onmouseup="aumentar_width('4')" src="image/4.png" alt="4" class="tecla" id="4"/>
-        <img onmousedown="calculadora('5');reducir_width('5')" onmouseup="aumentar_width('5')" src="image/5.png" alt="5" class="tecla" id="5"/>
-        <img onmousedown="calculadora('6');reducir_width('6')" onmouseup="aumentar_width('6')" src="image/6.png" alt="6" class="tecla" id="6"/>
-        <img onmousedown="calculadora('-');reducir_width('menos')" onmouseup="aumentar_width('menos')" src="image/menos.png" alt="menos" class="tecla resta" id="menos"/>
+        <img src="image/4.png" alt="4" class="tecla" id="4"/>
+        <img src="image/5.png" alt="5" class="tecla" id="5"/>
+        <img src="image/6.png" alt="6" class="tecla" id="6"/>
+        <img src="image/menos.png" alt="menos" class="tecla resta" id="menos"/>
 
         <div class="row">
           <div class="col1">
-            <img onmousedown="calculadora('1'); reducir_width('1')" onmouseup="aumentar_width('1')" src="image/1.png" alt="1" class="tecla" id="1"/>
-            <img onmousedown="calculadora('2'); reducir_width('2')" onmouseup="aumentar_width('2')" src="image/2.png" alt="2" class="tecla" id="2"/>
-            <img onmousedown="calculadora('3'); reducir_width('3')" onmouseup="aumentar_width('3')" src="image/3.png" alt="3" class="tecla" id="3"/>
+            <img src="image/1.png" alt="1" class="tecla" id="1"/>
+            <img src="image/2.png" alt="2" class="tecla" id="2"/>
+            <img src="image/3.png" alt="3" class="tecla" id="3"/>
 
-            <img onmousedown="calculadora('0');reducir_width('0')" onmouseup="aumentar_width('0')" src="image/0.png" alt="0" class="tecla" id="0"/>
-            <img onmousedown="agregar_punto();reducir_width('punto')" onmouseup="aumentar_width('punto')" src="image/punto.png" alt="punto" class="tecla" id="punto"/>
-            <img onmousedown="calculadora('=');reducir_width('igual')" onmouseup="aumentar_width('igual')" src="image/igual.png" alt="igual" class="tecla" id="igual"/>
+            <img src="image/0.png" alt="0" class="tecla" id="0"/>
+            <img src="image/punto.png" alt="punto" class="tecla" id="punto"/>
+            <img src="image/igual.png" alt="igual" class="tecla" id="igual"/>
           </div>
           <div class="col2">
-            <img onmousedown="calculadora('+');reducir_width('mas')" onmouseup="aumentar_width('mas')" src="image/mas.png" alt="mas" class="tecla suma" id="mas"/>
+            <img src="image/mas.png" alt="mas" class="tecla suma" id="mas"/>
           </div>
 
         </div>
